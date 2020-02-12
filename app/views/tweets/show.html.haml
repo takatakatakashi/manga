@@ -1,0 +1,11 @@
+.con
+  %img{height: "600", width: "450", src: @tweet.image}
+    .con_1
+      - if user_signed_in? && current_user.id == tweet.user_id
+      = link_to '編集', "/tweets/#{params[:id]}/edit", method: :get
+      = link_to '削除', "/tweets/#{@tweet.id}", method: :delete, data: { confirm: '削除しますか?' }
+      .con_2
+        = @tweet.name
+        .con_3
+          = simple_format(@tweet.text)
+          

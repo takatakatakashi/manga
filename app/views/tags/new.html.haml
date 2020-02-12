@@ -1,0 +1,11 @@
+.category
+  -@tweets.each do |tweet|
+    %img{height: "600", width: "450", src: tweet.image}
+    .category_1
+      = link_to '詳細', "/tweets/#{tweet.id}", method: :get
+        - if user_signed_in? && current_user.id == tweet.user_id
+      .category_2
+        =tweet.name
+        .category_3
+          =tweet.text
+       
